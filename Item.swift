@@ -15,7 +15,7 @@ class Item: NSManagedObject {
 // Insert code here to add functionality to your managed object subclass
     convenience init?(name: String, isComplete: Bool, context : NSManagedObjectContext = Stack.sharedStack.managedObjectContext) {
         
-       guard let entity = NSEntityDescription.entityForName("Task", inManagedObjectContext: context) else {return nil}
+       guard let entity = NSEntityDescription.entityForName("Item", inManagedObjectContext: context) else {return nil}
         
         self.init(entity : entity, insertIntoManagedObjectContext: context)
         self.name = name
