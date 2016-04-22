@@ -9,8 +9,13 @@
 import Foundation
 import CoreData
 class ItemController {
-    
+    static let sharedController = ItemController()
     //Crud
+    
+    var items: [Item] {
+        let items = fetchAllItems()
+        return items
+    }
     
     //Create
     
@@ -53,4 +58,7 @@ class ItemController {
         saveItems()
     }
     
+    func updateItemSelection(item: Item, selected: Bool) {
+        item.isComplete = selected
+    }
 }

@@ -14,13 +14,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1qU-ul-DF6" customClass="ListTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="1qU-ul-DF6" customClass="ListTableViewCell" customModule="ShoppingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1qU-ul-DF6" id="N2f-a3-l4G">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="incomplete" offImage="complete" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-el-cZH">
+                                            <rect key="frame" x="357" y="6" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isCheckedSwitchOutlet" destination="EZ5-el-cZH" id="eRh-zr-JoD"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -29,7 +37,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3L7-Hs-qki">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="e05-cm-dvb"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="e05-cm-dvb">
+                            <connections>
+                                <action selector="addItemButtonTapped:" destination="1Bz-Og-wqL" id="y3e-I9-mQ9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zw-uE-QyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,4 +68,8 @@
             <point key="canvasLocation" x="331" y="274"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="complete" width="512" height="512"/>
+        <image name="incomplete" width="512" height="512"/>
+    </resources>
 </document>

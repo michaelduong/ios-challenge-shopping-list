@@ -14,7 +14,7 @@ import CoreData
 
 extension Item {
 
-    @NSManaged var name: String
+    @NSManaged var name: String?
     @NSManaged var isComplete: NSNumber?
 
 }
